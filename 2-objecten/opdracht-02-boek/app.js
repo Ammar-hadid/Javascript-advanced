@@ -13,4 +13,24 @@
 
 // In de theorie staat uitgelegd hoe je dit moet doen.
 
-// Let op: in de code conventions staat dat je de code in het Engels moet schrijven!
+// Let op: in de code conventions staat dat je de code in het Engels moet schrijven!›
+
+const book = {
+    title: 'The Final Empire',
+    author: 'Brandon Sanderson',
+    publisher: 'Tor Books',
+    year: 2006,
+    sold: 10000000,
+    price: '€25'
+}
+
+const output = document.querySelector('.output');
+
+output.innerHTML = `
+    <p><strong>Title: </strong>${book.title}</p>
+    <p><strong>Author: </strong>${book.author}</p>
+    <p><strong>Publisher: </strong>${book.publisher}</p>
+    <p><strong>Year: </strong>${book.year}</p>
+    <p><strong>Sold: </strong>${book.sold}</p>
+    <p><strong>Price: </strong>${book.price}</p>
+`

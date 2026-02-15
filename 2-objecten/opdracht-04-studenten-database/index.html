@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studenten Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  <script src="app.js" type="module" defer></script>
 </head>
 
 <body>
@@ -17,9 +18,9 @@
 
   <section class="control-group">
     <h4>📋 Weergave</h4>
-    <button onclick="toonAlleStudenten()">Alle Studenten</button>
-    <button onclick="toonActieveStudenten()">Alleen Actief</button>
-    <button onclick="toonTopStudenten()">Top Prestaties (8.0+)</button>
+    <button class="toon-studenten">Alle Studenten</button>
+    <button class="toon-actieve-studenten">Alleen Actief</button>
+    <button class="toon-top-studenten">Top Prestaties (8.0+)</button>
   </section>
 
 
@@ -28,8 +29,6 @@
     <section id="studenten-lijst"></section>
   </main>
 
-
-  <script src="app.js"></script>
 </body>
 
 </html>

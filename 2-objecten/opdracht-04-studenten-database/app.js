@@ -1,77 +1,55 @@
-const students = [
-  {
-    id: 1,
-    naam: 'Emma van Dijk',
-    leeftijd: 20,
-    studie: 'Frontend Development',
-    cijfer: 8.5,
-    actief: true,
-  },
-  {
-    id: 2,
-    naam: 'Liam de Boer',
-    leeftijd: 19,
-    studie: 'Backend Development',
-    cijfer: 7.2,
-    actief: true,
-  },
-  {
-    id: 3,
-    naam: 'Sophie Jansen',
-    leeftijd: 21,
-    studie: 'Frontend Development',
-    cijfer: 9.1,
-    actief: false,
-  },
-  {
-    id: 4,
-    naam: 'Daan Peters',
-    leeftijd: 22,
-    studie: 'Fullstack Development',
-    cijfer: 6.8,
-    actief: true,
-  },
-  {
-    id: 5,
-    naam: 'Evi de Wit',
-    leeftijd: 20,
-    studie: 'Frontend Development',
-    cijfer: 8.9,
-    actief: true,
-  },
-];
+import {students} from './students.js';
 
-// function toonAlleStudenten() {
-//   // 📝 WAT MOET JE DOEN:
-//   // 1. Loop door de hele 'students' array
-//   // 2. Maak voor elke student een HTML article element
-//   // 3. Voeg de HTML toe aan het element met id 'studenten-lijst'
-//   //
-//   // 💡 TIP: Gebruik array.map() om HTML te maken en innerHTML om toe te voegen
-//   //
-//   // 🎯 VOORBEELD HTML per student:
-//   // <article class="actief"> (of "inactief")
-//   //     <strong>Emma van Dijk</strong> (20 jaar)<br>
-//   //     📚 Frontend Development<br>
-//   //     📊 Cijfer: 8.5 | Status: ✅ Actief
-//   // </article>
-// }
+const studentsContainer = document.getElementById('studenten-lijst');
 
-function toonActieveStudenten() {
-  // 📝 WAT MOET JE DOEN:
-  // 1. Filter de students array op studenten waar actief === true
-  // 2. Toon alleen die gefilterde studenten (gebruik dezelfde HTML als hierboven)
-  //
-  // 💡 TIP: Gebruik array.filter() en dan dezelfde logica als toonAlleStudenten()
+const buttonsContainer = document.querySelector('.control-group');
+
+buttonsContainer.addEventListener('click', e => {
+
+  if (e.target.closest('.toon-studenten')) {
+    toonAlleStudenten(studentsContainer);
+  }
+
+  else if (e.target.closest('.toon-actieve-studenten')) {
+    toonActieveStudenten(studentsContainer);
+  }
+
+  else if (e.target.closest('.toon-top-studenten')) {
+    toonTopStudenten(studentsContainer);
+  }
+})
+
+
+function toonAlleStudenten(container) {
+
+  renderStudents(container, students);
 }
 
-function toonTopStudenten() {
-  // 📝 WAT MOET JE DOEN:
-  // 1. Filter de students array op studenten met cijfer >= 8.0
-  // 2. Toon alleen die gefilterde studenten
-  //
-  // 💡 TIP: Gebruik array.filter() met een conditie op het cijfer
+function toonActieveStudenten(container) {
+
+  const activeStudents = students.filter(s => s.actief);
+
+  renderStudents(container, activeStudents);
 }
 
-// 🚀 START DE APPLICATIE - roep deze aan als de pagina laadt
-toonAlleStudenten();
+function toonTopStudenten(container) {
+  
+  const topStudents = students.filter(s => s.cijfer >= 8.0);
+
+  renderStudents(container, topStudents);
+}
+
+function renderStudents(container, arr) {
+  container.innerHTML = arr.map(s => {
+
+    const activeClass = s.actief ? 'actief' : 'inactief'
+
+    return `<article class="${activeClass}">
+                <strong>${s.naam}</strong> (${s.leeftijd} jaar)<br>
+                📚 ${s.studie}<br>
+                📊 Cijfer: ${s.cijfer} | Status: ${s.actief}
+            </article>`
+  }).join('');
+}
+
+toonAlleStudenten(studentsContainer);
