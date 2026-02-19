@@ -243,7 +243,7 @@ fetch('./cars.json')
 }
 
 // ✅ Goed:
-{
+{ 
   "name": "Fiat",
   "model": "500"
 }

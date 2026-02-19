@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Emma Johnson",
+    "birthDate": "2001-03-21",
+    "image": "./assets/images/emma.png"
+  },
+
+  {
+    "name": "Liam Smith",
+    "birthDate": "1998-11-08",
+    "image": "./assets/images/liam.png"
+  },
+
+  {
+    "name": "Olivia Brown",
+    "birthDate": "2003-06-14",
+    "image": "./assets/images/olivia.png"
+  },
+
+  {
+    "name": "Noah Wilson",
+    "birthDate": "1996-12-02",
+    "image": "./assets/images/noah.png"
+  },
+
+  {
+    "name": "Farah Martinez",
+    "birthDate": "2008-06-25",
+    "image": "./assets/images/ava.png"
+  },
+
+  {
+    "name": "Adam Anderson",
+    "birthDate": "1999-09-28",
+    "image": "./assets/images/lucas.png"
+  }
+]

@@ -1,0 +1,302 @@
+:root {
+
+    /* ===== COLORS ===== */
+        --primary-color: #4F46E5;
+        --primary-color-800: #726BEA;
+        --primary-color-600: #9590EF;
+        --primary-color-400: #B9B5F5;
+        --primary-color-200: #DCDAFA;
+
+        --gradient-l: linear-gradient(
+            135deg,
+            var(--primary-color-200),
+            var(--primary-color-400)
+        );
+
+        --gradient-d: linear-gradient(
+            135deg,
+            var(--primary-color),
+            var(--primary-color-800)
+        );
+
+        --interactive-color: #4036E3;
+
+        --bg-color: #E8ECF6;
+
+        --font-color-l: #ffffff;
+        --font-color-d: #1F1F24;
+
+        --error-feedback: #EF4444;
+        --interactive-error-feedback: #DC2626;
+
+    /* ===== TYPOGRAPHY ===== */
+        --font-size-h1: 3.5rem;
+        --font-size-h2: 3rem;
+        --font-size-h3: 2.25rem;
+
+        --font-size-p-l: 1.5rem;
+        --font-size-p-m: 1.375rem;
+        --font-size-p-s: 1.25rem;
+
+        --font-weight-s: 600;
+        --font-weight-m: 700;
+        --font-weight-l: 800;
+        --font-weight-xl: 900;
+
+        --letter-spacing: .08em;
+
+        --font-family: "poppins", sans-serif;
+
+    /* ===== SPACING ===== */
+        --space-1: .25rem;
+        --space-2: .5rem;
+        --space-3: 1rem;
+        --space-4: 2rem;
+        --space-5: 4rem;
+
+        --sec-space-1: 8rem;
+        --sec-space-2: 10rem;
+        --sec-space-3: 12rem;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-family);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ===== Type selectors ===== */
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    height: 100dvh;
+    background-color: var(--bg-color);
+    padding: 0 var(--space-5);
+}
+
+button {
+    position: fixed;
+    right: var(--space-4);
+    top: var(--space-4);
+    background: transparent;
+    border: 3px solid var(--error-feedback);
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-size-p-m);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--error-feedback);
+    cursor: pointer;
+    transition: transform .2s ease-in-out, background .1s ease-in;
+}
+
+button:hover {
+    background: var(--error-feedback);
+    color: var(--font-color-l);
+    transform: scale(1.01);
+}
+
+::-webkit-scrollbar {
+    width: .5em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--primary-color-200);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color-800);
+    border: .15em solid var(--primary-color-200);
+    border-radius: 15px;
+}
+
+/* ===== Utility classes ===== */
+
+.hidden {
+    display: none !important;
+}
+
+/* ================================= */
+/* ===== birthday-reminder-sec ===== */
+/* ================================= */
+
+.birthday-reminder-sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-5);
+    min-height: 100dvh;
+}
+
+.birthday-sec {
+    display: flex;
+    gap: var(--space-3);
+    max-height: 55dvh;
+}
+
+.birthday-reminder-sec h1 span {
+    color: var(--primary-color);
+}
+
+/* ===== Sidebar ===== */
+
+.birthday-reminder-sec .sidebar .card-wrapper {
+    overflow: auto;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: 0 var(--space-2) 0 0;
+}
+
+.birthday-reminder-sec .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.birthday-reminder-sec .upcoming-birthdays {
+    font-size: var(--font-size-p-l);
+    color: var(--font-color-d);
+    margin: 0 0 var(--space-3) 0;
+}
+
+.birthday-reminder-sec .sidebar .card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    background: var(--gradient-l);
+    padding: var(--space-3)
+}
+
+.birthday-reminder-sec .sidebar .card img {
+    width: 126px;
+}
+
+.birthday-reminder-sec .sidebar .card .text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.birthday-reminder-sec .sidebar .card p {
+    font-size: var(--font-size-p-m);
+    font-weight: var(--font-weight-m);
+    letter-spacing: var(--letter-spacing);
+    color: var(--font-color-d);
+}
+
+.birthday-reminder-sec .sidebar .card ul  {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-size: var(--font-size-p-s);
+}
+
+.birthday-reminder-sec .sidebar .card ul li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--font-color-d);
+}
+
+.birthday-reminder-sec .sidebar .card ul li::before {
+    content: '';
+    width: 12px;
+    height: 2px;
+    background: var(--font-color-d);
+}
+
+/* ===== featured sec ===== */
+.birthday-reminder-sec .featured {
+    display: flex;
+    background: var(--gradient-d);
+    color: var(--font-color-l);
+    padding: var(--space-5) var(--sec-space-1);
+    letter-spacing: var(--letter-spacing);
+    gap: var(--space-5);
+    align-items: center;
+}
+
+.birthday-reminder-sec .featured .img-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.birthday-reminder-sec .featured h2 {
+    border-bottom: 6px solid var(--primary-color-200);
+    width: fit-content;
+    padding-bottom: 5px;
+}
+
+.birthday-reminder-sec .featured img {
+    width: 263px;
+}
+
+.birthday-reminder-sec .featured .data-list {
+    display: flex;
+    font-size: var(--font-size-p-m);
+    flex-direction: column;
+    gap: var(--space-4);
+    margin: var(--space-5) 0 0 0;
+}
+
+.birthday-reminder-sec .featured .data-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.birthday-reminder-sec .featured .data-list li::before {
+    content: '';
+    width: 25px;
+    height: 5px;
+    background-color: var(--primary-color-200);
+}
+
+/* ================================= */
+/* ===== Nothing found screen ===== */
+/* ================================= */
+
+.nothing-found {
+    display: flex;
+    height: 80dvh;
+    justify-content: center;
+    align-items: center;
+}
+
+.nothing-found .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-5);
+}
+
+.nothing-found .wrapper h1 span {
+    color: var(--primary-color);
+}
