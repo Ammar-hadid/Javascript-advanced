@@ -1,0 +1,179 @@
+@font-face {
+    src: url('./assets/fonts/Fortnite.ttf');
+    font-family: 'fortnite'
+}
+
+:root {
+
+    /* ===== Color palette */
+        --primary-color: #1897E7;
+
+        --font-color: #ffffff;
+
+        --bg-color: linear-gradient(
+            135deg,
+            #111827,
+            #172135
+        );
+
+        --overlay-color: #111827;
+
+    /* ===== Typography ===== */
+        --font-size-h1: 3.5rem;
+        --font-size-h2: 3rem;
+        --font-size-h3: 2.25rem;
+
+        --font-size-p-l: 1.5rem;
+        --font-size-p-m: 1.375rem;
+        --font-size-p-s: 1.25rem;
+
+        --font-weight-s: 300;
+        --font-weight-m: 700;
+        --font-weight-l: 800;
+        --font-weight-xl: 900;
+
+        --letter-spacing: .08em;
+        --line-height: 1.2;
+        
+        --text-shadow: 0 0 16px rgba(0, 0, 0, .25);
+
+        --font-family-h: 'fortnite', sans-serif;
+        --font-family-p: "roboto", sans-serif;
+
+    /* ===== SPACING ===== */
+        --space-1: .25rem;
+        --space-2: .5rem;
+        --space-3: 1rem;
+        --space-4: 2rem;
+        --space-5: 4rem;
+
+        --sec-space-1: 8rem;
+        --sec-space-2: 10rem;
+        --sec-space-3: 12rem;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--bg-color);
+    min-height: 100%;
+    background-attachment: fixed;
+}
+
+h1 {
+    color: var(--font-color);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-l);
+    font-family: var(--font-family-h);
+    letter-spacing: var(--letter-spacing);
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+}
+
+p, ul {
+    font-family: var(--font-family-p);
+    color: var(--font-color);
+}
+
+/* =============================== */
+/* ==== new cosmetic section ===== */
+/* =============================== */
+
+.new-cosmetics {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--sec-space-1) var(--sec-space-2);
+}
+
+.new-cosmetics .heading p {
+    text-transform: uppercase;
+    margin: var(--space-3) 0;
+    font-size: var(--font-size-p-s);
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+    text-shadow: var(--text-shadow);
+}
+
+/* ==== Wrapper ===== */
+.card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3)
+}
+
+.card-wrapper .card {
+    position: relative;
+    background: rgba(255, 255, 255, .1);
+    cursor: pointer;
+}
+
+.card-wrapper .card img {
+    width: 100%;
+}
+
+.card-wrapper .card .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-3) var(--space-5) var(--space-5);
+
+    position: absolute;
+    inset: 0;
+    background: var(--bg-color);
+
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform .2s ease-in, opacity .2s ease-in;
+}
+
+.card-wrapper .card:hover .overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.card-wrapper .card:hover {
+    border: 1px solid var(--primary-color);
+}
+
+.card-wrapper .card .overlay p {
+    font-size: var(--font-size-p-m);
+    font-weight: var(--font-weight-l);
+    line-height: var(--line-height);
+}
+
+.card-wrapper .card .overlay ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    font-weight: var(--font-weight-s);
+}
+
+.card-wrapper .card .overlay ul li {
+    font-size: var(--font-size-p-m);
+
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    line-height: 1.5;
+}
+
+.card-wrapper .card .overlay ul li::before {
+    content: '';
+    width: 20px;
+    height: 3px;
+    background: var(--primary-color);
+}
