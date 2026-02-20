@@ -1,0 +1,133 @@
+:root {
+
+    /* ===== Color palette */
+        --primary-color: #2563EB;
+
+        --font-color: #000000;
+
+        --bg-color: #F8FAFC;
+
+        --card-bg: #ffffff;
+
+
+    /* ===== Typography ===== */
+        --font-size-h1: 3rem;
+
+        --font-size-p-m: 1.375rem;
+        --font-size-p-l: 1.5rem;
+
+        --font-weight-m: 600;
+        --font-weight-l: 700;
+
+        --letter-spacing: .08em;
+        --line-height: 1.5;
+        
+        --font-family: 'Montserrat', sans-serif;
+
+    /* ===== SPACING ===== */
+        --space-1: .25rem;
+        --space-2: .5rem;
+        --space-3: 1rem;
+        --space-4: 2rem;
+        --space-5: 4rem;
+
+        --sec-space-1: 8rem;
+        --sec-space-2: 10rem;
+        --sec-space-3: 12rem;
+
+    /* ===== EFFECTS ===== */
+        --box-shadow-s: 0 0 12px rgba(0, 0, 0, .25);
+        --box-shadow-m: 0 6px 12px rgba(0, 0, 0, .4);
+    
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-family);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--bg-color);
+}
+
+/* ============================= */
+/* ===== Countries section ===== */
+/* ============================= */
+
+.countries {
+    display: flex;
+    flex-direction: column;
+    margin: var(--sec-space-1) clamp(1rem, 10vw, var(--sec-space-2));
+    gap: var(--space-5);
+}
+
+.countries .heading h1 {
+    font-size: clamp(2.2rem, 3vw, var(--font-size-h1));
+}
+
+.countries .heading p {
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-size: clamp(1.2rem, 2vw, var(--font-size-p-l));
+    margin: var(--space-3) 0;
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+.countries .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4)
+}
+
+.countries .card-wrapper .card {
+    background-color: var(--card-bg);
+    box-shadow: var(--box-shadow-s);
+    transition: transform .2s ease-in, box-shadow .2s ease-in;
+    cursor: pointer;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.countries .card-wrapper .card:hover {
+    transform: translateY(-2%);
+    box-shadow: var(--box-shadow-m);
+}
+
+.countries .card-wrapper .card .img-wrapper {
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    overflow: hidden;
+}
+
+.countries .card-wrapper .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.countries .card-wrapper .card .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-top: .5px solid var(--primary-color);
+}
+
+.countries .card-wrapper .card .content p:nth-child(1) {
+    color: var(--primary-color);
+    font-weight: var(--font-weight-m);
+    font-size: var(--font-size-p-l);
+}
+
+.countries .card-wrapper .card .content p:nth-child(2) {
+    font-size: var(--font-size-p-m);
+    opacity: .5;
+}
